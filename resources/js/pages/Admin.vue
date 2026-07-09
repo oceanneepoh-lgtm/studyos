@@ -235,8 +235,33 @@
               </div>
               <div class="form-group"><label>Description</label><textarea v-model="rForm.description" rows="2"></textarea></div>
               <div class="form-row">
-                <div class="form-group"><label>Filiere</label><input v-model="rForm.filiere" /></div>
-                <div class="form-group"><label>Niveau</label><input v-model="rForm.niveau" /></div>
+                <div class="form-group"><label>Filiere</label>
+                  <select v-model="rForm.filiere">
+                    <option value="">-- Aucune --</option>
+                    <option>Genie Logiciel</option>
+                    <option>Gestion des systemes d'information</option>
+                    <option>Telecommunication</option>
+                    <option>Infographie et web design</option>
+                    <option>Commerce International</option>
+                    <option>Marketing-Commerce-Vente</option>
+                    <option>Comptabilite et gestion</option>
+                    <option>Banque et finance</option>
+                    <option>Gestion des ressources humaines</option>
+                    <option>Sciences infirmieres</option>
+                    <option>Sage-femme</option>
+                    <option>Kinesitherapie</option>
+                  </select>
+                </div>
+                <div class="form-group"><label>Niveau</label>
+                  <select v-model="rForm.niveau">
+                    <option value="">-- Aucun --</option>
+                    <option>BTS 1</option>
+                    <option>BTS 2</option>
+                    <option>Licence</option>
+                    <option>Master 1</option>
+                    <option>Master 2</option>
+                  </select>
+                </div>
               </div>
               <div class="form-group"><label>Fichier (PDF, Word...)</label><input type="file" @change="rForm.fichier = $event.target.files[0]" /></div>
               <button type="submit" class="btn-primary">Enregistrer</button>
