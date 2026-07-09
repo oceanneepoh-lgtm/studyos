@@ -785,9 +785,13 @@ async function deleteUser(id) {
 async function addRessource() {
   const fd = new FormData();
   Object.entries(rForm).forEach(([k, v]) => { if (v) fd.append(k, v); });
-  await api.post('/admin/ressources', fd);
-  showRessourceForm.value = false;
-  stats.value.ressources++;
+  try {
+    await api.post('/admin/ressources', fd);
+    showRessourceForm.value = false;
+    stats.value.ressources++;
+  } catch (e) {
+    alert('Erreur: ' + (e.response?.data?.message || JSON.stringify(e.response?.data?.errors) || 'Erreur inconnue'));
+  }
 }
 
 async function addQuiz() {

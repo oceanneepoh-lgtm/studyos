@@ -25,7 +25,7 @@ class RessourceController extends Controller
         $request->validate([
             'titre' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'type' => 'required|in:cours,examen,td,tp,fiche_revision,autre',
+            'type' => 'required|string',
             'filiere' => 'nullable|string',
             'niveau' => 'nullable|string',
             'fichier' => 'nullable|file|max:10240',
