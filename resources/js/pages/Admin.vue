@@ -306,8 +306,33 @@
               </div>
               <div class="form-row form-row-3">
                 <div class="form-group"><label>Chapitre</label><input v-model="qForm.chapitre" /></div>
-                <div class="form-group"><label>Filiere</label><input v-model="qForm.filiere" /></div>
-                <div class="form-group"><label>Niveau</label><input v-model="qForm.niveau" /></div>
+                <div class="form-group"><label>Filiere</label>
+                  <select v-model="qForm.filiere">
+                    <option value="">-- Aucune --</option>
+                    <option>Genie Logiciel</option>
+                    <option>Gestion des systemes d'information</option>
+                    <option>Telecommunication</option>
+                    <option>Infographie et web design</option>
+                    <option>Commerce International</option>
+                    <option>Marketing-Commerce-Vente</option>
+                    <option>Comptabilite et gestion</option>
+                    <option>Banque et finance</option>
+                    <option>Gestion des ressources humaines</option>
+                    <option>Sciences infirmieres</option>
+                    <option>Sage-femme</option>
+                    <option>Kinesitherapie</option>
+                  </select>
+                </div>
+                <div class="form-group"><label>Niveau</label>
+                  <select v-model="qForm.niveau">
+                    <option value="">-- Aucun --</option>
+                    <option>BTS 1</option>
+                    <option>BTS 2</option>
+                    <option>Licence</option>
+                    <option>Master 1</option>
+                    <option>Master 2</option>
+                  </select>
+                </div>
               </div>
               <div class="questions-section">
                 <h4>Questions</h4>
@@ -393,8 +418,33 @@
                 <div class="form-group"><label>Matiere</label><input v-model="kForm.matiere" placeholder="Ex: Marketing" /></div>
               </div>
               <div class="form-row">
-                <div class="form-group"><label>Filiere (optionnel)</label><input v-model="kForm.filiere" placeholder="Ex: Informatique de Gestion" /></div>
-                <div class="form-group"><label>Niveau (optionnel)</label><input v-model="kForm.niveau" placeholder="Ex: Licence 3" /></div>
+                <div class="form-group"><label>Filiere (optionnel)</label>
+                  <select v-model="kForm.filiere">
+                    <option value="">-- Aucune --</option>
+                    <option>Genie Logiciel</option>
+                    <option>Gestion des systemes d'information</option>
+                    <option>Telecommunication</option>
+                    <option>Infographie et web design</option>
+                    <option>Commerce International</option>
+                    <option>Marketing-Commerce-Vente</option>
+                    <option>Comptabilite et gestion</option>
+                    <option>Banque et finance</option>
+                    <option>Gestion des ressources humaines</option>
+                    <option>Sciences infirmieres</option>
+                    <option>Sage-femme</option>
+                    <option>Kinesitherapie</option>
+                  </select>
+                </div>
+                <div class="form-group"><label>Niveau (optionnel)</label>
+                  <select v-model="kForm.niveau">
+                    <option value="">-- Aucun --</option>
+                    <option>BTS 1</option>
+                    <option>BTS 2</option>
+                    <option>Licence</option>
+                    <option>Master 1</option>
+                    <option>Master 2</option>
+                  </select>
+                </div>
               </div>
               <div class="form-group">
                 <label>Fichier (PDF, Word, PowerPoint, TXT)</label>
