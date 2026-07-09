@@ -760,10 +760,11 @@ onUnmounted(() => {
 
 onMounted(async () => {
   try {
-    const [s, e, k, st] = await Promise.all([api.get('/admin/stats'), api.get('/admin/etudiants'), api.get('/admin/knowledge'), api.get('/admin/settings')]);
+    const [s, e, k, st, r] = await Promise.all([api.get('/admin/stats'), api.get('/admin/etudiants'), api.get('/admin/knowledge'), api.get('/admin/settings'), api.get('/ressources')]);
     stats.value = { ...stats.value, ...s.data };
     etudiants.value = e.data;
     knowledgeDocs.value = k.data;
+    ressourcesList.value = r.data.data || r.data;
     aiSettings.value = st.data;
     settingsForm.ai_provider = st.data.provider;
     settingsForm.claude_model = st.data.claude_model;
@@ -786,9 +787,11 @@ async function addRessource() {
   const fd = new FormData();
   Object.entries(rForm).forEach(([k, v]) => { if (v) fd.append(k, v); });
   try {
-    await api.post('/admin/ressources', fd);
+    const { data } = await api.post('/admin/ressources', fd);
+    ressourcesList.value.unshift(data);
     showRessourceForm.value = false;
     stats.value.ressources++;
+    rForm.titre = ''; rForm.description = ''; rForm.type = 'cours'; rForm.filiere = ''; rForm.niveau = ''; rForm.fichier = null;
   } catch (e) {
     alert('Erreur: ' + (e.response?.data?.message || JSON.stringify(e.response?.data?.errors) || 'Erreur inconnue'));
   }
