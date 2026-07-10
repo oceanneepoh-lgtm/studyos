@@ -46,6 +46,10 @@ class KnowledgeController extends Controller
             $texte = file_get_contents($fullPath);
         }
 
+        // Clean UTF-8 encoding
+        $texte = mb_convert_encoding($texte, 'UTF-8', 'UTF-8');
+        $texte = preg_replace('/[^\x{0009}\x{000A}\x{000D}\x{0020}-\x{D7FF}\x{E000}-\x{FFFD}]/u', '', $texte);
+
         // If extraction failed, store notice
         if (empty(trim($texte))) {
             $texte = "[Contenu non extractible automatiquement pour le fichier: {$originalName}]";
