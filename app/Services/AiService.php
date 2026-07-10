@@ -28,7 +28,7 @@ class AiService
 
         $model = Setting::get('claude_model', 'claude-haiku-4-5-20251001');
 
-        $response = Http::withHeaders([
+        $response = Http::withoutVerifying()->withHeaders([
             'x-api-key' => $apiKey,
             'anthropic-version' => '2023-06-01',
             'Content-Type' => 'application/json',
@@ -58,7 +58,7 @@ class AiService
 
         $model = Setting::get('gemini_model', 'gemini-2.0-flash');
 
-        $response = Http::post("https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$apiKey}", [
+        $response = Http::withoutVerifying()->post("https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$apiKey}", [
             'system_instruction' => [
                 'parts' => [['text' => $systemPrompt]],
             ],
