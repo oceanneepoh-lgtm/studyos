@@ -6,7 +6,7 @@ import http from 'http';
 import path from 'path';
 
 // ========== CONFIG ==========
-const LARAVEL_API = process.env.LARAVEL_API || 'http://127.0.0.1:8001/api';
+const LARAVEL_API = process.env.LARAVEL_API || 'http://127.0.0.1:8000/api';
 const HTTP_PORT = process.env.BOT_PORT || 3002;
 const AUTH_DIR = './auth_state';
 
